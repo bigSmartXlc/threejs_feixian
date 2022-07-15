@@ -176,14 +176,14 @@ export default class ThreeMap {
     绘制纹理贴图
   */
   getTextCanvas(text){ 
-    var width=256, height=256; 
+    var width=122, height=40; 
     var canvas = document.createElement('canvas');
     canvas.width = width;
     canvas.height = height;
     var ctx = canvas.getContext('2d');
     ctx.fillStyle = '#C3C3C3';
     ctx.fillRect(0, 0, width, height);
-    ctx.font = 50+'px " bold';
+    ctx.font = 30+'px " bold';
     ctx.fillStyle = '#2891FF';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -210,9 +210,8 @@ export default class ThreeMap {
       amount: -2,
       bevelEnabled: false
     });
-    // new THREE.MeshBasicMaterial( { map: new THREE.CanvasTexture(getTextCanvas('Leo Test Label')) } ),
     const material = new THREE.MeshBasicMaterial({
-      map: new THREE.CanvasTexture(this.getTextCanvas('Leo Test Label')),
+      map: new THREE.CanvasTexture(this.getTextCanvas('南湖')),
       color: this.color,
       transparent: true,
       opacity: 0.6,
