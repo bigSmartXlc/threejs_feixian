@@ -63,7 +63,6 @@ export default class ThreeMapLightBar extends ThreeMap {
    * @desc 绘制6边形
    */
   drawSixMesh(x, y, z, i,color) {
-    console.log(color);
     const geometry = new THREE.CircleGeometry(0.3, 600);
     const material = new THREE.MeshBasicMaterial({ color: color });
     const mesh = new THREE.Mesh(geometry, material);
@@ -153,7 +152,6 @@ export default class ThreeMapLightBar extends ThreeMap {
       geometry.colors = new Array(points.length).fill(new THREE.Color(this.colors[i % 9]));
       const material = new THREE.LineBasicMaterial({
         vertexColors: THREE.VertexColors,
-        linewidth: 10,
         // color: this.colors[i % 9],
         transparent: true,
         side: THREE.DoubleSide

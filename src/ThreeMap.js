@@ -172,7 +172,24 @@ export default class ThreeMap {
     const line = new THREE.Line(geometry, material);
     return line;
   }
-
+  /*
+    绘制纹理贴图
+  */
+  getTextCanvas(text){ 
+    var width=256, height=256; 
+    var canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#C3C3C3';
+    ctx.fillRect(0, 0, width, height);
+    ctx.font = 50+'px " bold';
+    ctx.fillStyle = '#2891FF';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, width/2,height/2); 
+    return canvas;
+    }
   /**
    * @desc 绘制地图模型 points 是一个二维数组 [[x,y], [x,y], [x,y]]
    */
@@ -193,7 +210,9 @@ export default class ThreeMap {
       amount: -2,
       bevelEnabled: false
     });
+    // new THREE.MeshBasicMaterial( { map: new THREE.CanvasTexture(getTextCanvas('Leo Test Label')) } ),
     const material = new THREE.MeshBasicMaterial({
+      map: new THREE.CanvasTexture(this.getTextCanvas('Leo Test Label')),
       color: this.color,
       transparent: true,
       opacity: 0.6,
